@@ -2,7 +2,11 @@ import torch
 from torch import autocast
 import torch.nn.functional as F
 
-torch_device = "cuda" if torch.cuda.is_available() else "cpu"
+torch_device = (
+    "cuda"
+    if torch.cuda.is_available()
+    else ("mps" if torch.backends.mps.is_available() else "cpu")
+)
 
 import numpy as np
 from PIL import Image
@@ -130,7 +134,9 @@ if __name__ == "__main__":
     M = get_M(candidate_embeddings, S)
     G = args.lam * M + np.eye(M.shape[0])
     P = np.linalg.inv(G)
-    P = torch.tensor(P).cuda()
+
+    # ARM, meaning MPS, only allow for float32, not float64 created by .inv().
+    P = torch.tensor(P, dtype=torch.float32).to(device=torch_device)
 
     # Language Prompt
     prompt = ["A photo of a " + args.cls + "."]
