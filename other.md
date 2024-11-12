@@ -14,3 +14,6 @@ pip install https://download.pytorch.org/whl/cpu/torchvision-0.13.0-cp38-cp38-ma
 pip install https://download.pytorch.org/whl/cpu/torchaudio-0.12.0-cp38-cp38-macosx_11_0_arm64.whl#sha256=d176ace6903bf5d1f57fea4a36aa37e6c848aa197c3d06d238dcae8831c92cbe``
 pip install --upgrade torch torchvision
 ```
+
+datasets
+- Got waterbird dataaset from https://github.com/kohpangwei/group_DRO

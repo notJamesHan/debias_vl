@@ -2,3 +2,12 @@
 .aider*
 .env
 */output_*
+
+# datasets
+/discriminative/datasets/data
+
+# Others
+*.pyc
+*.pt
+*.DS_Store
+.DS_Store

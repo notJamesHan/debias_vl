@@ -106,6 +106,7 @@ if __name__ == "__main__":
     counter = 0
     for train_cls_i in train_list:
         train_cls_i = train_cls_i.lower()
+        # A photo of a young male, old female?
         candidate_prompt += [
             "A photo of a male {}.".format(train_cls_i),
             "A photo of a female {}.".format(train_cls_i),
